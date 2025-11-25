@@ -21,7 +21,7 @@ The core architecture and modeling approach rely on these key features:
 - Guarantees accurate predictions and strong generalization on unseen data.
 
 ## Project Structure
-'''
+```
 house-price-predictor/
 │
 ├── data/                 # Исходные данные (train/test)
@@ -36,4 +36,4 @@ house-price-predictor/
 ├── README.md             # Этот файл с описанием проекта
 ├── .gitignore            # Файл для исключения ненужных файлов из Git
 └── LICENSE               # Лицензия проекта
-'''
+```
