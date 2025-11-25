@@ -24,16 +24,30 @@ The core architecture and modeling approach rely on these key features:
 ```
 house-price-predictor/
 │
-├── data/                 # Исходные данные (train/test)
-    ├── train/            # Тренировочные данные
-    ├── train/            # Тренировочные данные
-    ├── train/            # Тренировочные данные
-├── images/               # Сохранённые картинки из ноутбука (графики, визуализации)
-├── notebooks/            # Jupyter notebook со всем кодом
-└── submission/           # Финальный файл с предсказаниями для Kaggle
-    └── submission.csv
-├── requirements.txt      # Список зависимостей проекта
-├── README.md             # Этот файл с описанием проекта
-├── .gitignore            # Файл для исключения ненужных файлов из Git
-└── LICENSE               # Лицензия проекта
+├── data/                               # Original dataset files
+│    ├── data_description.txt            # Description of dataset columns and features
+│    ├── sample_submission.csv           # Sample submission file from Kaggle
+│    ├── test.csv                        # Test set
+│    └── train.csv                       # Training set
+│
+├── images/                             # Saved plots and visualizations from notebook
+│    ├── 1.sale_price_comparison.png     
+│    ├── 2.full_collinearity_heatmap.png  
+│    ├── 3.rmsle_comparison.png   
+│    ├── 4.actual_vs_predicted.png   
+│    ├── 5.residual_plot_1.png 
+│    ├── 6.residual_plot_2.png   
+│    ├── 7.residual_plot_3.png  
+│    └── 8.feature_importance_universal.png
+│
+├── notebooks/                          # Jupyter notebook containing full project code
+│    └── house-price-predictor.ipynb
+│
+└── submission/                         # Final predictions for Kaggle
+│    └── submission_CatBoost.csv
+│
+├── requirements.txt                    # Project dependencies
+├── README.md                           # Project overview, instructions, and details
+├── .gitignore                          # Files and folders excluded from Git
+└── LICENSE                             # Project license
 ```
