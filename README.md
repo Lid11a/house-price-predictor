@@ -1,1 +1,1 @@
-# house-price-predictor
+# Advanced regression for house price prediction
