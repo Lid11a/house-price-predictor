@@ -21,14 +21,19 @@ The core architecture and modeling approach rely on these key features:
 - Guarantees accurate predictions and strong generalization on unseen data.
 
 ## Project Structure
-
+'''
 house-price-predictor/
 │
 ├── data/                 # Исходные данные (train/test)
+    ├── train/            # Тренировочные данные
+    ├── train/            # Тренировочные данные
+    ├── train/            # Тренировочные данные
+├── images/               # Сохранённые картинки из ноутбука (графики, визуализации)
 ├── notebooks/            # Jupyter notebook со всем кодом
-├── images/               # Сохранённые картинки из ноутбука (графики, визуализации)
-├── images/               # Сохранённые картинки из ноутбука (графики, визуализации)
+└── submission/           # Финальный файл с предсказаниями для Kaggle
+    └── submission.csv
 ├── requirements.txt      # Список зависимостей проекта
 ├── README.md             # Этот файл с описанием проекта
 ├── .gitignore            # Файл для исключения ненужных файлов из Git
 └── LICENSE               # Лицензия проекта
+'''
