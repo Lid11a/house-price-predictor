@@ -1,24 +1,24 @@
 # Advanced regression for house price prediction  
-A high-performance machine learning framework to predict house prices using the Kaggle dataset. Goes beyond standard regression by combining multiple models, smart pipelines, and rigorous evaluation.
+A **high-performance machine learning framework** to predict **house prices** using the Kaggle dataset. Goes beyond standard regression by combining multiple models, smart pipelines, and rigorous evaluation.
 
 ## Project overview  
 The core architecture and modeling approach rely on these key features:
-1. Smart Preprocessing
-- Handles missing data, engineers features, and encodes categorical variables safely using Pipeline and ColumnTransformer.
-- Prevents data leakage and ensures consistent transformations across all models.
-2. Flexible Pipelines
-- Supports Standard, PCA, No-Collinearity, and Polynomial Features pipelines.
-- Runs each model in an optimized configuration for its strengths.
-- Makes experimenting with different feature sets easy.
-3. Hyperparameter Optimization
+1. **Smart Preprocessing**
+- Handles **missing data**, engineers **features**, and encodes **categorical variables** safely using **Pipeline** and **ColumnTransformer**.
+- Prevents **data leakage** and ensures **consistent transformations** across all models.
+2. **Flexible Pipelines**
+- Supports **Standard**, **PCA**, **No-Collinearity**, and **Polynomial Features** pipelines.
+- Runs each model in an **optimized configuration** for its strengths.
+- Makes experimenting with **different feature sets** easy.
+3. **Hyperparameter Optimization**
 - Uses GridSearchCV for fine-tuning and RandomizedSearchCV for broad exploration.
 - Ensures models achieve optimal performance efficiently.
-4. Feature Insights
-- Applies Permutation Importance (PFI) to rank features across all models, including complex ones like SVR and K-NN.
-- Provides interpretable results even for high-performance gradient boosting models.
-5. RMSLE-Optimized Performance
-- Evaluates all pipelines using Root Mean Squared Logarithmic Error (RMSLE).
-- Guarantees accurate predictions and strong generalization on unseen data.
+4. **Feature Insights**
+- Applies **Permutation Importance (PFI)** to rank features across all models, including complex ones like SVR and K-NN.
+- Provides **interpretable results** even for **high-performance gradient boosting models**.
+5. **RMSLE-Optimized Performance**
+- Evaluates all pipelines using **Root Mean Squared Logarithmic Error (RMSLE)**.
+- Guarantees **accurate predictions** and **strong generalization** on unseen data.
 
 ## Project structure
 ```
@@ -81,16 +81,16 @@ To reproduce the analysis and modeling results, you need Python 3.9 - 3.11 and t
     # or
     jupyter lab
     ```
-7. **Run the notebook**  
+6. **Run the notebook**  
    Open `notebooks/house-price-predictor.ipynb` and execute all cells sequentially.
 
-8. **Generate submission file**  
+7. **Generate submission file**  
    The final cell blocks will automatically select the best model and generate the final predictions file. The output file is saved in the `./submission/` directory as a CSV file. The file name reflects the best-performing model.
 
 ## Results  
 The objective of this project was to predict house prices using advanced ensemble regression techniques and comprehensive feature engineering.  
 A total of **21 regression models** were evaluated, with **CatBoostRegressor** achieving the best performance on the test set.  
-The final CatBoost model reached an internal RMSLE of **0.125271**, with a **Kaggle Public Score** of **0.12694** on the submission platform, demonstrating strong predictive accuracy and feature robustness.
+The final CatBoost model reached an internal **RMSLE** of **0.125271**, with a **Kaggle Public Score** of **0.12694** on the submission platform, demonstrating strong predictive accuracy and feature robustness.
 
 ## License  
 This project is licensed under the **MIT License**.
