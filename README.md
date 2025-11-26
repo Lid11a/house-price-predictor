@@ -20,17 +20,17 @@ The core architecture and modeling approach rely on these key features:
 - Evaluates all pipelines using Root Mean Squared Logarithmic Error (RMSLE).
 - Guarantees accurate predictions and strong generalization on unseen data.
 
-## Project Structure
+## Project structure
 ```
 house-price-predictor/
 │
-├── data/                               # Original dataset files
+├── data/                                # Original dataset files
 │    ├── data_description.txt            # Description of dataset columns and features
 │    ├── sample_submission.csv           # Sample submission file from Kaggle
 │    ├── test.csv                        # Test set
 │    └── train.csv                       # Training set
 │
-├── images/                             # Saved plots and visualizations from notebook
+├── images/                              # Saved plots and visualizations from notebook
 │    ├── 1.sale_price_comparison.png     
 │    ├── 2.full_collinearity_heatmap.png  
 │    ├── 3.rmsle_comparison.png   
@@ -40,14 +40,53 @@ house-price-predictor/
 │    ├── 7.residual_plot_3.png  
 │    └── 8.feature_importance_universal.png
 │
-├── notebooks/                          # Jupyter notebook containing full project code
+├── notebooks/                           # Jupyter notebook containing full project code
 │    └── house-price-predictor.ipynb
 │
-└── submission/                         # Final predictions for Kaggle
+└── submission/                          # Final predictions for Kaggle
 │    └── submission_CatBoost.csv
 │
-├── requirements.txt                    # Project dependencies
-├── README.md                           # Project overview, instructions, and details
-├── .gitignore                          # Files and folders excluded from Git
-└── LICENSE                             # Project license
+├── requirements.txt                     # Project dependencies
+├── README.md                            # Project overview, instructions, and details
+├── .gitignore                           # Files and folders excluded from Git
+└── LICENSE                              # Project license
 ```
+
+## Installation and usage
+To reproduce the analysis and modeling results, you need Python 3.9+ and the project dependencies.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Lid11a/house-price-predictor
+    cd house-price-predictor
+    ```
+2.  **Create and activate a virtual environment:**
+    ```bash
+    python -m venv venv
+    # Windows:
+    venv\Scripts\activate
+    # macOS / Linux:
+    source venv/bin/activate
+    ```
+3.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  **Data preparation:**
+    The dataset is already included in the ./data/ directory. No additional downloads are required.
+
+5. **Launch the notebook**
+     Start Jupyter Lab or Jupyter Notebook from the project root directory:
+  ```bash
+  jupyter notebook
+  # or
+  jupyter lab
+  ```
+6. **Run the notebook**
+   Open `notebooks/house-price-predictor.ipynb` and execute all cells sequentially.
+
+7. **Generate submission file**
+   The final cell blocks will automatically select the best model and generate the final predictions file. The output file is saved in the `./submission/` directory as a CSV file. The file name reflects the best-performing model.
+
+## Results (Результаты): Ваши лучшие метрики.
+
+## License (Лицензия).
