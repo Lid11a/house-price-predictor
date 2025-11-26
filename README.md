@@ -74,17 +74,17 @@ To reproduce the analysis and modeling results, you need Python 3.9+ and the pro
 4.  **Data preparation:**
     The dataset is already included in the ./data/ directory. No additional downloads are required.
 
-5. **Launch the notebook**
-     Start Jupyter Lab or Jupyter Notebook from the project root directory:
-  ```bash
-  jupyter notebook
-  # or
-  jupyter lab
-  ```
-6. **Run the notebook**
+5.  **Launch the notebook**
+    Start Jupyter Lab or Jupyter Notebook from the project root directory:
+    ```bash
+    jupyter notebook
+    # or
+    jupyter lab
+    ```
+7. **Run the notebook**
    Open `notebooks/house-price-predictor.ipynb` and execute all cells sequentially.
 
-7. **Generate submission file**
+8. **Generate submission file**
    The final cell blocks will automatically select the best model and generate the final predictions file. The output file is saved in the `./submission/` directory as a CSV file. The file name reflects the best-performing model.
 
 ## Results (Результаты): Ваши лучшие метрики.
