@@ -87,35 +87,10 @@ To reproduce the analysis and modeling results, you need Python 3.9 - 3.11 and t
 8. **Generate submission file**  
    The final cell blocks will automatically select the best model and generate the final predictions file. The output file is saved in the `./submission/` directory as a CSV file. The file name reflects the best-performing model.
 
-## Results (Результаты): Ваши лучшие метрики  
-The objective of this project was to predict house prices using advanced ensemble regression techniques and comprehensive feature engineering. The final pipeline included a comparative analysis of **21 different models**, with **CatBoostRegressor** demonstrating the best performance on the test set.  
-The following table summarizes the performance metrics of all 21 regression models evaluated, sorted by the target metric, RMSLE.  
-```
-| Model | RMSLE | RMSE ($) | R² | MAE ($) |
-| :--- | :--- | :--- | :--- | :--- |
-| **CatBoost** | **0.125271** | **24,822** | **0.912050** | 14,760 |
-| LightGBM | 0.128015 | 25,633 | 0.906208 | 15,213 |
-| SVR\_PCA | 0.128608 | 28,088 | 0.887380 | 14,633 |
-| SVR | 0.128766 | 27,882 | 0.889024 | 14,509 |
-| XGBoost | 0.129106 | 25,123 | 0.909905 | 15,206 |
-| Lasso | 0.129990 | 23,925 | 0.918293 | 15,664 |
-| ElasticNet | 0.129990 | 23,925 | 0.918293 | 15,664 |
-| SVR\_NC | 0.131168 | 27,693 | 0.890528 | 15,291 |
-| Ridge | 0.133576 | 25,086 | 0.910169 | 16,299 |
-| OLS\_PCA | 0.136912 | 26,021 | 0.903347 | 17,402 |
-| RandomForest | 0.138850 | 27,455 | 0.892397 | 16,579 |
-| PolyRidge\_PCA | 0.143246 | 29,941 | 0.872032 | 16,987 |
-| PolyElasticNet\_PCA | 0.143345 | 29,321 | 0.877276 | 16,497 |
-| PolyLasso\_PCA | 0.143907 | 29,308 | 0.877385 | 16,489 |
-| DecisionTree | 0.145511 | 30,218 | 0.869652 | 17,513 |
-| Poly\_OLS\_PCA | 0.171691 | 34,009 | 0.834900 | 19,441 |
-| K-NN\_PCA | 0.172111 | 37,771 | 0.796343 | 20,953 |
-| K-NN\_NC | 0.178595 | 36,335 | 0.811542 | 21,095 |
-| KNN | 0.179674 | 35,325 | 0.821874 | 20,945 |
-| PolyOLS\_NC | 0.200042 | 94,041 | -0.262430 | 22,405 |
-| OLS\_NC | 0.202470 | 35,505 | 0.820047 | 23,886 |
-```
-The final deployed CatBoost model achieved an internal RMSLE of 0.125271, with a Kaggle Public Score of 0.12694 on the submission platform, demonstrating strong predictive accuracy and feature robustness.
+## Results  
+The objective of this project was to predict house prices using advanced ensemble regression techniques and comprehensive feature engineering.  
+A total of **21 regression models** were evaluated, with **CatBoostRegressor** achieving the best performance on the test set.  
+The final CatBoost model reached an internal RMSLE of **0.125271**, with a **Kaggle Public Score** of **0.12694** on the submission platform, demonstrating strong predictive accuracy and feature robustness.
 
-## License (Лицензия)  
+## License  
 This project is licensed under the **MIT License**.
