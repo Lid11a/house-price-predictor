@@ -160,30 +160,30 @@ Launch Jupyter Notebook or Jupyter Lab and execute the notebook
 The project leverages a set of tools covering the full tabular data workflow —
 from statistical analysis and hypothesis testing to comparative modeling and final model selection.
 
-- **Data analysis and statistics**
-pandas, numpy — analysis of feature distributions, missing values, and the target variable;
+- **Data analysis and statistics**  
+  pandas, numpy — analysis of feature distributions, missing values, and the target variable;
 statistical dependency testing (including eta-squared)
 
-- **Visualization and EDA**
-matplotlib, seaborn
+- **Visualization and EDA**  
+  matplotlib, seaborn
 
-- **Linear and regularized models**
-Linear Regression (OLS), Ridge, Lasso, Elastic Net
+- **Linear and regularized models**  
+  Linear Regression (OLS), Ridge, Lasso, Elastic Net
 
-- **Polynomial models**
-Polynomial Regression combined with PCA and regularization
+- **Polynomial models**  
+  Polynomial Regression combined with PCA and regularization
 
-- **Distance- and margin-based methods**
-K-Nearest Neighbors, Support Vector Machines
+- **Distance- and margin-based methods**  
+  K-Nearest Neighbors, Support Vector Machines
 
-- **Decision trees and ensemble methods**
-Decision Tree, Random Forest
+- **Decision trees and ensemble methods**  
+  Decision Tree, Random Forest
 
-- **Gradient boosting**
-XGBoost, CatBoost, LightGBM
+- **Gradient boosting**  
+  XGBoost, CatBoost, LightGBM
 
-- **Experiment infrastructure**
-Jupyter Notebook
+- **Experiment infrastructure**  
+  Jupyter Notebook
 
 ---
 
