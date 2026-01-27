@@ -1,96 +1,192 @@
-# Advanced regression for house price prediction  
-A **high-performance machine learning framework** to predict **house prices** using the Kaggle dataset. Goes beyond standard regression by combining multiple models, smart pipelines, and rigorous evaluation.
+# House Price Prediction
 
-## Project overview  
-The core architecture and modeling approach rely on these key features:
-1. **Smart Preprocessing**
-- Handles **missing data**, engineers **features**, and encodes **categorical variables** safely using **Pipeline** and **ColumnTransformer**.
-- Prevents **data leakage** and ensures **consistent transformations** across all models.
-2. **Flexible Pipelines**
-- Supports **Standard**, **PCA**, **No-Collinearity**, and **Polynomial Features** pipelines.
-- Runs each model in an **optimized configuration** for its strengths.
-- Makes experimenting with **different feature sets** easy.
-3. **Hyperparameter Optimization**
-- Uses GridSearchCV for fine-tuning and RandomizedSearchCV for broad exploration.
-- Ensures models achieve optimal performance efficiently.
-4. **Feature Insights**
-- Applies **Permutation Importance (PFI)** to rank features across all models, including complex ones like SVR and K-NN.
-- Provides **interpretable results** even for **high-performance gradient boosting models**.
-5. **RMSLE-Optimized Performance**
-- Evaluates all pipelines using **Root Mean Squared Logarithmic Error (RMSLE)**.
-- Guarantees **accurate predictions** and **strong generalization** on unseen data.
+---
+
+A regression modeling project focused on **predicting house prices**
+using structured tabular data.
+
+The project emphasizes **rigorous data analysis**, **systematic comparison of model families**,
+and an **evidence-based selection of the final solution**.
+
+**Languages:** [English](README.md) | [Русский](README_RU.md)
+
+---
+
+## Table of contents
+
+- [Project overview](#project-overview)
+- [Data analysis and experiments](#data-analysis-and-experiments)
+- [Project structure](#project-structure)
+- [Project setup and execution](#project-setup-and-execution)
+- [Technologies used](#technologies-used)
+- [License](#license)
+
+---
+
+## Project overview
+
+This project demonstrates a complete analytical workflow for tabular data:
+from exploratory analysis and hypothesis validation to comparative model evaluation and final conclusions.
+
+Within the project, the following tasks were performed:
+
+- analysis of the target distribution and justification of log-transformation of house prices;
+- investigation of numerical and categorical features using Pearson / Spearman correlations and eta-squared statistics;
+- comparison of multiple model families using consistent, model-oriented preprocessing pipelines, including:
+    - linear models (baseline and regularized); 
+    - polynomial regression; 
+    - distance-based models; 
+    - tree-based models;
+- selection of the final solution with an optimal balance between generalization performance and interpretability.
+
+---
+
+## Data analysis and experiments
+
+All analytical work is implemented in the notebook: `notebooks/house_price_predictor.ipynb`.
+
+### Exploratory and statistical analysis
+
+The following key steps were carried out prior to the modeling stage:
+
+- analysis of data structure, feature types, and missing values in the training and test datasets;
+- examination of the target distribution and selection of a log-transformation consistent with the RMSLE metric;
+- analysis of numerical feature distributions and their relationships with the target variable;
+- comparison of linear and monotonic dependencies for numerical features;
+- assessment of multicollinearity among numerical features and its implications for model selection;
+- analysis of categorical features, including category distributions and 
+  quantitative evaluation of their association with the target variable.
+
+### Modeling
+
+A systematic comparison of several families of regression models was conducted using consistent, 
+model-oriented preprocessing pipelines and a common evaluation metric (RMSLE).
+
+The following model groups were evaluated:
+
+- Linear models: OLS as a baseline, as well as Ridge, Lasso, and Elastic Net to stabilize linear modeling 
+  under high dimensionality and strong feature correlation.
+- Polynomial models: linear models with polynomial feature expansion, combined with PCA and regularization.
+- Distance-based models: KNN and SVR to assess the applicability of similarity-based approaches.
+- Trees and ensembles: Decision Tree, Random Forest, XGBoost, LightGBM, and CatBoost.
+
+Hyperparameter tuning was performed for all models using cross-validation.
+Model performance is reported in the original price scale after inverse log-transformation.
+
+### Key findings
+
+- Regularized linear models achieve the best performance on the hold-out set,
+  indicating a dominant linear signal in the data.
+- Lasso regression yields the lowest RMSLE by effectively suppressing noise
+in a high-dimensional one-hot encoded feature space. 
+- Gradient boosting models (CatBoost, LightGBM, XGBoost) demonstrate comparable performance
+but do not provide a measurable improvement over Lasso.
+- Polynomial and distance-based models degrade in performance as feature dimensionality increases.
+
+---
 
 ## Project structure
+
 ```
 house-price-predictor/
 │
-├── data/                                # Original dataset files
-│    ├── data_description.txt            # Description of dataset columns and features
-│    ├── sample_submission.csv           # Sample submission file from Kaggle
-│    ├── test.csv                        # Test set
-│    └── train.csv                       # Training set
-│
-├── images/                              # Saved plots and visualizations from notebook
-│    ├── 1.sale_price_comparison.png     
-│    ├── 2.full_collinearity_heatmap.png  
-│    ├── 3.rmsle_comparison.png   
-│    ├── 4.actual_vs_predicted.png   
-│    ├── 5.residual_plot_1.png 
-│    ├── 6.residual_plot_2.png   
-│    ├── 7.residual_plot_3.png  
-│    └── 8.feature_importance_universal.png
-│
-├── notebooks/                           # Jupyter notebook containing full project code
+├── notebooks/                           # Data analysis, experiments, and conclusions
 │    └── house-price-predictor.ipynb
-│
-└── submission/                          # Final predictions for Kaggle
-│    └── submission_CatBoost.csv
-│
+├── .gitignore                           # Git ignore rules
+├── README.md                            # Project description (EN)
+├── README_RU.md                         # Project description (RU)
 ├── requirements.txt                     # Project dependencies
-├── README.md                            # Project overview, instructions, and details
-├── .gitignore                           # Files and folders excluded from Git
 └── LICENSE                              # Project license
 ```
 
-## Installation and usage
-To reproduce the analysis and modeling results, you need Python 3.9 - 3.11 and the project dependencies.
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/Lid11a/house-price-predictor
-    cd house-price-predictor
-    ```
-2.  **Create and activate a virtual environment**
-    ```bash
-    python -m venv venv
-    # Windows:
-    venv\Scripts\activate
-    # macOS / Linux:
-    source venv/bin/activate
-    ```
-3.  **Install dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
-4.  **Data preparation**  
-    The dataset is already included in the ./data/ directory. No additional downloads are required.
+---
 
-5.  **Launch the notebook**  
-    Start Jupyter Lab or Jupyter Notebook from the project root directory:
-    ```bash
-    jupyter notebook
-    # or
-    jupyter lab
-    ```
-6. **Run the notebook**  
-   Open `notebooks/house-price-predictor.ipynb` and execute all cells sequentially.
+## Project setup and execution
 
-7. **Generate submission file**  
-   The final cell blocks will automatically select the best model and generate the final predictions file. The output file is saved in the `./submission/` directory as a CSV file. The file name reflects the best-performing model.
+### Requirements
 
-## Results  
-The objective of this project was to predict house prices using advanced ensemble regression techniques and comprehensive feature engineering.  
-A total of **21 regression models** were evaluated, with **CatBoostRegressor** achieving the best performance on the test set.  
-The final CatBoost model reached an internal **RMSLE** of **0.125271**, with a **Kaggle Public Score** of **0.12694** on the submission platform, demonstrating strong predictive accuracy and feature robustness.
+- Python 3.9+ (tested with Python 3.12);
+- Jupyter Notebook
 
-## License  
-This project is licensed under the **MIT License**.
+### Installation and execution
+
+#### 1) Clone the repository
+
+```
+git clone https://github.com/Lid11a/house-price-predictor
+cd house-price-predictor
+```
+
+#### 2) Kaggle API token setup (one-time)
+
+The dataset is automatically downloaded using the Kaggle API.
+
+- **Windows:** `%USERPROFILE%\.kaggle\kaggle.json`
+- **Linux / macOS:** `~/.kaggle/kaggle.json`
+
+For Linux / macOS, file permissions must be set as follows:
+
+```
+ chmod 600 ~/.kaggle/kaggle.json
+```
+
+#### 3) Create and activate a virtual environment, then install dependencies
+
+**Windows (PowerShell)**
+
+```
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+**macOS / Linux**
+
+```
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+#### 4) Run the analysis
+
+Launch Jupyter Notebook or Jupyter Lab and execute the notebook
+`notebooks/house-price-predictor.ipynb` sequentially from top to bottom.
+
+---
+
+## Technologies used
+
+The project leverages a set of tools covering the full tabular data workflow —
+from statistical analysis and hypothesis testing to comparative modeling and final model selection.
+
+- **Data analysis and statistics**
+pandas, numpy — analysis of feature distributions, missing values, and the target variable;
+statistical dependency testing (including eta-squared)
+
+- **Visualization and EDA**
+matplotlib, seaborn
+
+- **Linear and regularized models**
+Linear Regression (OLS), Ridge, Lasso, Elastic Net
+
+- **Polynomial models**
+Polynomial Regression combined with PCA and regularization
+
+- **Distance- and margin-based methods**
+K-Nearest Neighbors, Support Vector Machines
+
+- **Decision trees and ensemble methods**
+Decision Tree, Random Forest
+
+- **Gradient boosting**
+XGBoost, CatBoost, LightGBM
+
+- **Experiment infrastructure**
+Jupyter Notebook
+
+---
+
+## License
+
+This project is licensed under the MIT License.
