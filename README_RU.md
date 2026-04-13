@@ -31,6 +31,18 @@
 1. **Notebook / research layer** — исследовательский анализ, эксперименты и выбор финальной модели  
 2. **Code implementation layer** — воспроизводимый train-скрипт, predict-скрипт, API и тесты
 
+Исследовательскую часть можно отдельно открыть и изучить в ноутбуке:
+
+```text
+notebooks/house-price-predictor.ipynb
+```
+
+Команды ниже относятся к кодовой реализации проекта и позволяют:
+
+- обучить финальную модель;
+- получить предсказания для тестового набора Kaggle;
+- запустить FastAPI-сервис локально для онлайн-предсказаний.
+
 **Требования:**
 
 - Python 3.9+ (проверено на Python 3.12)
@@ -78,7 +90,7 @@ pip install -r requirements.txt
 python src/train.py
 ```
 
-### 5) Получить предсказания для тестового датасета test.csv
+### 5) Получить предсказания для тестового датасета `test.csv`
 
 ```bash
 python src/test.py
@@ -96,6 +108,32 @@ Swagger UI:
 http://127.0.0.1:8000/docs
 ```
 
+### 7) Запустить тесты и CI (GitHub Actions)
+
+Локально тесты можно запустить командой:
+
+```
+pytest
+```
+
+GitHub Actions workflow находится в:
+
+```
+.github/workflows/ci.yml
+```
+
+Пайплайн автоматически запускается при:
+
+- push;
+- pull_request.
+
+В рамках CI выполняются следующие шаги:
+
+- checkout репозитория;
+- настройка Python 3.11;
+- установка зависимостей;
+- запуск pytest.
+
 ---
 
 ## Содержание
@@ -105,7 +143,6 @@ http://127.0.0.1:8000/docs
 - [Кодовая реализация](#кодовая-реализация)
 - [Структура проекта](#структура-проекта)
 - [Данные](#данные)
-- [Запуск проекта](#запуск-проекта)
 - [Используемые технологии](#используемые-технологии)
 - [Лицензия](#лицензия)
 
@@ -276,102 +313,6 @@ house-prices-advanced-regression-techniques
 - `data/raw/data_description.txt`
 
 Если `train.csv` и `test.csv` уже лежат локально, повторное скачивание не выполняется, кроме случая с `--force-download`.
-
----
-
-## Запуск проекта
-
-Все команды ниже запускаются из корня репозитория.
-
-### 1) Установка зависимостей
-
-**Windows (PowerShell)**
-
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-**macOS / Linux**
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-### 2) Запуск тестов
-
-```bash
-pytest
-```
-
-### 3) Обучение финальной модели
-
-```bash
-python src/train.py
-```
-
-Опционально:
-
-```bash
-python src/train.py --force-download
-```
-
-Что создаётся:
-
-- `artifacts/model.joblib`
-- `artifacts/metrics.json`
-
-### 4) Генерация предсказаний для Kaggle test set
-
-```bash
-python src/test.py
-```
-
-Опционально:
-
-```bash
-python src/test.py --force-download
-```
-
-Выходной файл:
-
-- `artifacts/submission.csv`
-
-### 5) Запуск API
-
-```bash
-uvicorn api.main:app --app-dir src --host 0.0.0.0 --port 8000
-```
-
-Полезные URL:
-
-- `http://127.0.0.1:8000/health`
-- `http://127.0.0.1:8000/schema`
-- `http://127.0.0.1:8000/cheatsheet`
-- `http://127.0.0.1:8000/docs`
-
-### 6) CI (GitHub Actions)
-
-GitHub Actions workflow находится в:
-
-```text
-.github/workflows/ci.yml
-```
-
-Пайплайн автоматически запускается при:
-
-- `push`
-- `pull_request`
-
-В рамках CI выполняются следующие шаги:
-
-- checkout репозитория
-- настройка Python 3.11
-- установка зависимостей
-- запуск `pytest`
 
 ---
 
