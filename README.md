@@ -31,6 +31,18 @@ This repository contains **two parts**:
 1. **Notebook / research layer** — exploratory analysis, experiments, and final model selection  
 2. **Code implementation layer** — reproducible training script, prediction script, API, and tests
 
+The notebook part can be explored separately by opening:
+
+```text
+notebooks/house-price-predictor.ipynb
+```
+
+The code below demonstrates how to work with the implementation part of the project:
+
+- train the final model;
+- generate predictions for the Kaggle test set;
+- run the FastAPI service locally for online predictions.
+
 **Prerequisites:**
 
 - Python 3.9+ (tested on Python 3.12)
