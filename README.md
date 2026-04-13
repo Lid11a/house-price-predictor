@@ -90,7 +90,7 @@ pip install -r requirements.txt
 python src/train.py
 ```
 
-### 5) Generate predictions for the test.csv test dataset
+### 5) Generate predictions for the `test.csv` test dataset
 
 ```bash
 python src/test.py
@@ -108,6 +108,31 @@ Swagger UI:
 http://127.0.0.1:8000/docs
 ```
 
+### 7) Run tests and CI (GitHub Actions)
+
+Run the automated tests locally:
+
+```bash
+pytest
+```
+
+The GitHub Actions workflow is located at:
+
+```text
+.github/workflows/ci.yml
+```
+
+The pipeline runs automatically on:
+
+- push
+- pull_request
+
+The current CI steps are:
+
+- checkout repository
+- set up Python 3.11
+- install dependencies
+- run `pytest`
 ---
 
 ## Table of contents
@@ -117,7 +142,6 @@ http://127.0.0.1:8000/docs
 - [Code implementation](#code-implementation)
 - [Project structure](#project-structure)
 - [Data](#data)
-- [Running the project](#running-the-project)
 - [Technologies used](#technologies-used)
 - [License](#license)
 
@@ -288,102 +312,6 @@ Default local paths:
 - `data/raw/data_description.txt`
 
 If `train.csv` and `test.csv` already exist locally, download is skipped unless forced.
-
----
-
-## Running the project
-
-All commands below are executed from the repository root.
-
-### 1) Install dependencies
-
-**Windows (PowerShell)**
-
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-**macOS / Linux**
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-### 2) Run tests
-
-```bash
-pytest
-```
-
-### 3) Train the final model
-
-```bash
-python src/train.py
-```
-
-Optional:
-
-```bash
-python src/train.py --force-download
-```
-
-Artifacts produced:
-
-- `artifacts/model.joblib`
-- `artifacts/metrics.json`
-
-### 4) Generate predictions for the Kaggle test set
-
-```bash
-python src/test.py
-```
-
-Optional:
-
-```bash
-python src/test.py --force-download
-```
-
-Output:
-
-- `artifacts/submission.csv`
-
-### 5) Run the API
-
-```bash
-uvicorn api.main:app --app-dir src --host 0.0.0.0 --port 8000
-```
-
-Useful URLs:
-
-- `http://127.0.0.1:8000/health`
-- `http://127.0.0.1:8000/schema`
-- `http://127.0.0.1:8000/cheatsheet`
-- `http://127.0.0.1:8000/docs`
-
-### 6) CI (GitHub Actions)
-
-The GitHub Actions workflow is located at:
-
-```text
-.github/workflows/ci.yml
-```
-
-The pipeline runs automatically on:
-
-- `push`
-- `pull_request`
-
-The current CI steps are:
-
-- checkout repository
-- set up Python 3.11
-- install dependencies
-- run `pytest`
 
 ---
 
