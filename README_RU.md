@@ -124,14 +124,14 @@ GitHub Actions workflow находится в:
 
 Пайплайн автоматически запускается при:
 
-- push;
+- push
 - pull_request.
 
 В рамках CI выполняются следующие шаги:
 
-- checkout репозитория;
-- настройка Python 3.11;
-- установка зависимостей;
+- checkout репозитория
+- настройка Python 3.11
+- установка зависимостей
 - запуск pytest.
 
 ---
@@ -211,7 +211,7 @@ notebooks/house-price-predictor.ipynb
 - `artifacts/model.joblib`
 - `artifacts/metrics.json`
 
-В артефакте лежат обученная модель и метаданные, включая target column и версию scikit-learn.
+В артефакте лежат обученная модель и метаданные.
 
 #### API-сервис
 
@@ -239,7 +239,7 @@ API использует тот же сохранённый артефакт, ч
 - `logs/train.log`
 - `logs/predict_batch.log`
 
-#### Тесты и quality control
+#### Тесты и контроль качества
 
 В проекте есть автоматические тесты для ключевых частей реализации.
 
@@ -331,7 +331,7 @@ house-prices-advanced-regression-techniques
 - catboost
 - Jupyter Notebook
 
-### Code / implementation layer
+### Кодовая реализация
 
 - Python
 - pandas
